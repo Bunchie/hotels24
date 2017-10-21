@@ -9,6 +9,7 @@ return [
     'password' => 'Пароль',
     'keep_me' => 'Запомнить меня',
     'sign_in' => 'Вход в систему',
+    'sign_in_btn' => 'Вход',
     'forgot_pass' => 'Забыли пароль?',
     'dont_have_account' => 'У вас нет учетной записи?',
     'register_now' => 'Зарегистрируйтесь сейчас',

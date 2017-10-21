@@ -167,7 +167,7 @@
                 </div>
             </div>
             <div class="col-4">
-                <button type="submit" class="btn btn-warning btn-block">@lang('hotel24.sign_in')</button>
+                <button type="submit" class="btn btn-warning btn-block">@lang('hotel24.sign_in_btn')</button>
             </div>
         </div>
     </div>
@@ -175,10 +175,10 @@
     <hr/>
     <div>
         <div class="row">
-            <div class="col-8">
+            <div class="col-lg-7">
                 <span>@lang('hotel24.forgot_pass')</span>
             </div>
-            <div class="col-4">
+            <div class="col-lg-5">
                 <span>@lang('hotel24.dont_have_account')</span>
                 <a href="/">@lang('hotel24.register_now')</a>
             </div>

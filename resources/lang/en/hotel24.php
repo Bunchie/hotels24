@@ -9,6 +9,7 @@ return [
     'password' => 'Password',
     'keep_me' => 'Keep me signed in',
     'sign_in' => 'Sign in',
+    'sign_in_btn' => 'Sign in',
     'forgot_pass' => 'Forgotten your Password?',
     'dont_have_account' => 'Don`t have an account?',
     'register_now' => 'Register Now',
