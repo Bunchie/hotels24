@@ -55,17 +55,14 @@ class Hotel24Controller
 
         if ($request->input('username') == 'Anna' && $request->input('password') == 11111) {
             Lang::get('hostel24.hello', array(), 'en');
-            //Session::flash('message', 'Login success! «HTTP status code 200»');
             Session::flash('message', Lang::get('hotel24.login_success'));
             Session::flash('alert-class', 'alert-success');
             $status = 200;
         } elseif ($request->input('username') == '500' && $request->input('password') == 500) {
-//            Session::flash('message', 'Login error! «HTTP status code 500»');
             Session::flash('message', Lang::get('hotel24.login_error'));
             Session::flash('alert-class', 'alert-danger');
             $status = 400;
         } else {
-            //Session::flash('message', 'Login failure! «HTTP status code 400»');
             Session::flash('message', Lang::get('hotel24.login_warning'));
             Session::flash('alert-class', 'alert-warning');
             $status = 400;

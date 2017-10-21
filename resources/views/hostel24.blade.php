@@ -87,102 +87,103 @@
     <button>RU</button>
 </a>
 <section class="container">
-    <form method="POST" action={{'/auth/login/' . App::getLocale()}} class='hostel24-form d-block mx-auto'>
+    <form method="POST" action={{'/auth/login/' . App::getLocale()}} class='hostel24-form d-block mx-auto
+    '>
 
-        {{ csrf_field() }}
+    {{ csrf_field() }}
 
-        <div class="form-group hostel24-form-header">
-            <div class="hostel24-form-header-brand">
-                <img src="https://hotels24.ua/images/logo-w.png" alt="Hotels24.ua"/>
+    <div class="form-group hostel24-form-header">
+        <div class="hostel24-form-header-brand">
+            <img src="https://hotels24.ua/images/logo-w.png" alt="Hotels24.ua"/>
+        </div>
+        <div class="hostel24-form-header-text">@lang('hotel24.sign_in')</div>
+    </div>
+
+    <div class="form-group hostel24-form-title">
+        @lang('hotel24.title_social')
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="form-group ">
+                <button type="button" class="btn btn-tw btn-block btn-twitter">
+                    <i class="fa fa-twitter hostel24-form-social-icon"></i>
+                    <span>@lang('hotel24.btn_twitter')</span>
+                </button>
             </div>
-            <div class="hostel24-form-header-text">@lang('hotel24.sign_in')</div>
         </div>
 
-        <div class="form-group hostel24-form-title">
-            @lang('hotel24.title_social')
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-6">
-                <div class="form-group ">
-                    <button type="button" class="btn btn-tw btn-block btn-twitter">
-                        <i class="fa fa-twitter hostel24-form-social-icon"></i>
-                        <span>@lang('hotel24.btn_twitter')</span>
-                    </button>
-                </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <button type="button" class="btn btn-fb btn-block btn-facebook">
+                    <i class="fa fa-facebook hostel24-form-social-icon"></i>
+                    <span>@lang('hotel24.btn_facebook')</span>
+                </button>
             </div>
+        </div>
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    <button type="button" class="btn btn-fb btn-block btn-facebook">
-                        <i class="fa fa-facebook hostel24-form-social-icon"></i>
-                        <span>@lang('hotel24.btn_facebook')</span>
-                    </button>
-                </div>
+    </div>
+
+    <hr/>
+
+    <div class="form-group hostel24-form-title">
+        @lang('hotel24.title_details')
+    </div>
+
+    @if(Session::has('message'))
+        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    @endif
+
+    <div class="form-group ">
+        @if($errors->first('username'))
+            <div class="alert alert-danger">
+                {{$errors->first('username')}}
             </div>
-
-        </div>
-
-        <hr/>
-
-        <div class="form-group hostel24-form-title">
-            @lang('hotel24.title_details')
-        </div>
-
-        @if(Session::has('message'))
-            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
         @endif
-
-        <div class="form-group ">
-            @if($errors->first('username'))
-                <div class="alert alert-danger">
-                    {{$errors->first('username')}}
-                </div>
-            @endif
-            <label for="username" class="sr-only">@lang('hotel24.username')</label>
-            <input type="text" class="form-control hostel24-form-input"
-                   placeholder=@lang('hotel24.username') name="username">
-        </div>
-        <div class="form-group">
-            @if($errors->first('password'))
-                <div class="alert alert-danger">
-                    {{$errors->first('password')}}
-                </div>
-            @endif
-            <label for="password" class="sr-only">@lang('hotel24.password')</label>
-            <input type="password" class="form-control hostel24-form-input"
-                   placeholder=@lang('hotel24.password') name="password"
-            >
-        </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-8">
-                    <label class="sr-only">Checkbox</label>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox"> @lang('hotel24.keep_me')
-                        </label>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <button type="submit" class="btn btn-warning btn-block">@lang('hotel24.sign_in')</button>
+        <label for="username" class="sr-only">@lang('hotel24.username')</label>
+        <input type="text" class="form-control hostel24-form-input"
+               placeholder=@lang('hotel24.username') name="username">
+    </div>
+    <div class="form-group">
+        @if($errors->first('password'))
+            <div class="alert alert-danger">
+                {{$errors->first('password')}}
+            </div>
+        @endif
+        <label for="password" class="sr-only">@lang('hotel24.password')</label>
+        <input type="password" class="form-control hostel24-form-input"
+               placeholder=@lang('hotel24.password') name="password"
+        >
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-8">
+                <label class="sr-only">Checkbox</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> @lang('hotel24.keep_me')
+                    </label>
                 </div>
             </div>
-        </div>
-
-        <hr/>
-        <div>
-            <div class="row">
-                <div class="col-8">
-                    <span>@lang('hotel24.forgot_pass')</span>
-                </div>
-                <div class="col-4">
-                    <span>@lang('hotel24.dont_have_account')</span>
-                    <a href="/">@lang('hotel24.register_now')</a>
-                </div>
+            <div class="col-4">
+                <button type="submit" class="btn btn-warning btn-block">@lang('hotel24.sign_in')</button>
             </div>
         </div>
+    </div>
+
+    <hr/>
+    <div>
+        <div class="row">
+            <div class="col-8">
+                <span>@lang('hotel24.forgot_pass')</span>
+            </div>
+            <div class="col-4">
+                <span>@lang('hotel24.dont_have_account')</span>
+                <a href="/">@lang('hotel24.register_now')</a>
+            </div>
+        </div>
+    </div>
     </form>
 </section>
 </body>
